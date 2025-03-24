@@ -1,3 +1,6 @@
+" Original modified to remove keyboard shortcuts. 
+" I will set up personalized shortcuts in my .vimrc.
+
 " BufPos:  Activate a buffer by its position number in the buffers
 "          list
 " Author:  Michele Campeotto <michele@campeotto.net>
@@ -24,12 +27,3 @@ function! BufPos_ActivateBuffer(num)
     endfor
     echo "No buffer!"
 endfunction
-
-function! BufPos_Initialize()
-    for i in range(1, 9) 
-        exe "map <M-" . i . "> :call BufPos_ActivateBuffer(" . i . ")<CR>"
-    endfor
-    exe "map <M-0> :call BufPos_ActivateBuffer(10)<CR>"
-endfunction
-
-autocmd VimEnter * call BufPos_Initialize()
